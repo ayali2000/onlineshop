@@ -1,0 +1,46 @@
+<nav class="navbar shadow sticky-top" id="naav">
+  <div class="container-fluid" id="dnav">
+      <div class="d-flex">
+        <a class="navbar-brand" href="{% url 'index'%}">
+          <h1 class="text-white" id="shab">Arafat<h1>
+        </a>
+      </div>
+    
+    <div class="d-flex d-none d-lg-block d-md-block ">
+      <a class="navbar-brand" href="{% url 'index' %}">
+        <span class="text-white">Home</span>
+      </a>
+      <a class="navbar-brand" href="{% url 'sell' %}">
+        <span class="text-white">Sell</span>
+      </a>
+      {% if request.user.is_authenticated %}
+      <a class="navbar-brand" href="{% url 'logout' %}">
+        <span class="text-white">logout</span>
+      </a>
+      {% else %}
+      <a class="navbar-brand" href="{% url 'login' %}">
+        <span class="text-white">login</span>
+      </a>
+      {% endif %}
+    </div>
+    {% if request.user.is_authenticated %}
+    <div class="d-flex">
+      <a class="navbar-brand d-block d-lg-none d-md-none" href="{% url 'logout' %}">
+        <span class="badge rounded-pill shadow">logout</span>
+      </a>
+    <div class="d-flex">
+        <img src="/media/pro.png" alt="" width="40" height="40" id="pro">
+    </div>
+    {% else %}
+    <div class="d-flex">
+      <a class="navbar-brand" href="{% url 'signup' %}">
+        <span class="badge rounded-pill bg-success">signup</span>
+      </a>
+      <a class="navbar-brand d-block d-lg-none d-md-none" href="{% url 'login' %}">
+        <span class="badge rounded-pill bg-success">login</span>
+      </a>
+    </div>
+    {% endif %}
+    
+  </div>
+</nav>

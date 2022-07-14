@@ -1,0 +1,90 @@
+{% extends 'partial/base.html' %}
+{% block content %}
+{% include 'partial/nav.html'%}
+<div class='col-lg-7 offset-lg-5 mb-5'>
+    <div class="col afnav"> 
+        <div>
+            <form class="d-flex" id="search" method="GETS" action="">
+                <input class="form-control me-2" id="search" name="q" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit" id='bbt'>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class='container-fluid'>
+        <div class="row">
+            {% if not query %}
+            {% for i in cat_prods %}
+                {% if i.phonecat %}
+                <div class="container">
+                    <div class="card mt-3 col-lg-6">
+                        <div class="row">
+                            <div class='col col-5'>
+                                <a href="{% url 'detail' i.pk %}">
+                                    <img class='w-100' src="{{ i.Image.url }}" alt="" id="phone">
+                                </a>
+                            </div>
+                            <div class='col col-7'>
+                                <div class="row">
+                                <p id='descphone'>{{i.Description}}</p>
+                                </div>
+                                <div class="row">
+                                    <div class='col'>
+                                    <p>{{i.Name}}</p>
+                                    </div>
+                                    <div class='col'>
+                                        <p>{{i.Name}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+            {% else %}
+                {% if query %}
+                {% for i in result %}
+                <div class="container">
+                    <div class="card mt-3 col-lg-6">
+                        <div class="row">
+                            <div class='col col-4'>
+                                <a href="{% url 'deatil' i.pk %}"><img src="{{ i.Image.url }}" alt="" id="phone"></a>
+                            </div>
+                            <div class='col col-8'>
+                                <div class="row" id='me'>
+                                <p id='desc'>{{i.Description}}</p>
+                                </div>
+                                <div class="row">
+                                    <div class='col'>
+                                    <p>{{i.Name}}</p>
+                                    </div>
+                                    <div class='col'>
+                                        <p>{{i.Name}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                not match
+                {% endif %}
+            {% endif %}    
+        </div>
+    </div><br><br><br>
+    <div class='row fixed-bottom d-lg-none d-md-none d-sm-none shadow' id='basenav'>
+        <div class='col'><a href="{{request.META.HTTP_REFERER|escape}}" style='color: black;'><center>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+            </svg>
+        </center></a>
+        </div>
+        {% include "partial/phonenav.html" %}
+    </div>
+</div>
+{% endblock %}

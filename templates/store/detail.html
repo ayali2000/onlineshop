@@ -1,0 +1,67 @@
+{% extends 'partial/base.html' %}
+{% block title %}
+Shabri store
+{% endblock %}
+{% block content %} 
+{% include 'partial/nav.html' %}
+<div class='container offset-lg-1'>
+    <div class ='row row-cols-lg-2'>
+        <div class='col col-lg-6'>
+            <div class='car mt-4'>
+                <div>
+                    <center>
+                    <h2 style='color:orange;'>{{item.Name.upper}}</h2>
+                    </center>
+                </div>
+                <div class=''>
+                    <center>
+                       <img class='col-lg-8 d-none d-lg-block d-md-block' src="{{item.Image.url}}" alt='...' height='350px' id='det'>
+                    </center>
+                <img class='w-100 d-block d-lg-none d-md-none' src="{{item.Image.url}}" alt='...' height='350px' id='det'>
+                </div>
+            </div>
+            <div class='row mt-4'>
+                <div class='col d-flex'  style = 'background:orange; color:white;'>
+                    <p><strong>Ghs</strong> {{item.Price}}</p>
+                </div>
+                <div class='col' style = 'background:lightgreen; color:white;'>
+                    <center>
+                    Contact: 0246027872
+                    </center>
+                </div>
+            </div>
+            <div class='mt-2' style = 'color:orange;' >
+                <center>
+                    Location: Greater Accra
+                </center>
+            </div>
+            <p class='mt-2'>{{item.Description}}</p>
+            <div class='alert alert-danger'>
+            <strong> NOTE:</strong> I'm not responsible for any scams. Make sure you get your desired product before any payment
+            </div><br><br>
+        </div>
+        <div class='col col-lg-4 mt-4 d-none d-lg-block d-md-block offset-lg-1'>
+            <div>
+                <div>
+                    <center>
+                        <h2 style='color:orange;'>Order products here</h2>
+                    </center>
+                </div><br>
+                <form method = 'POST'>
+                    {% csrf_token %}
+                    <div>
+                      {{frm.Name}}<br>
+                      {{frm.Quantity}}<br>
+                      {{frm.Phone_num}}<br>
+                      {{frm.Address}}<br>
+                      <div class='d-flex justify-content-center'>
+                      <input class = "btn btn-primary d-flex" type = 'submit' style='background-color:orange;'></input>
+                      </div>
+                    </div>
+                  </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% include "partial/phonenav.html" %}
+{% endblock %}

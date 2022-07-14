@@ -1,0 +1,102 @@
+#pro{
+    border-radius: 20px;
+}
+
+#dnav{
+    background-color: orange;
+    
+}
+
+#basenav{
+    height: 50px;
+    background-color: lightcyan;
+}
+
+#shab{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: italic;
+}
+
+#naav{
+    padding: 0%;
+}
+
+.afnav{
+    height: 150px;
+    width: 100%;
+    background-color: rgb(254, 169, 10);
+    align-items: center;
+    display: flex;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius:20px;
+}
+
+#search{
+    width: 220px;
+    border-radius: 20px;
+    margin-left: 5%;
+    margin-right: 10%;
+}
+
+#disp{
+    background-color: orange;
+}
+
+#primg{
+    border-radius: 5px;
+    margin-top: 5px;
+    object-fit: cover;
+    height: 200px;
+}
+
+#bbt{
+    border-radius: 40px;
+}
+
+#desc{
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 4px;
+    font-family: 'Calibri';
+    line-height: 17px;
+}
+
+
+#line{
+    max-height: 10px;
+}
+
+#phone{
+    height: 120px;
+    width: 120px;
+}
+
+#loc{
+    color: orange;
+    line-height: 1px;
+}
+
+#det{
+    object-fit: cover;
+}
+
+#descphone{
+    height: 70px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 4px;
+    font-family: 'Calibri';
+    line-height: 17px;
+}
+
+
+#bgimg{
+    position: fixed;
+    background-size: cover;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    background-image: url("/media/bg.jpg");
+}
