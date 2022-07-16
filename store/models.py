@@ -7,9 +7,9 @@ class Items(models.Model):
     Name = models.CharField(max_length=100)
     Cat = [
         ('Phones','Phones'),
-        ('1','1'),
-        ('2','2'),
-        ('3','3'),
+        ('Accessories','Accessories'),
+        ('Sneakers','Sneakers'),
+        ('Others','Others'),
     ]
     Category = models.CharField(max_length=50, choices=Cat)
     Description = models.CharField(max_length=500)
@@ -25,13 +25,13 @@ class Items(models.Model):
         return self.Category == "Phones"
         
     def cat1(self):
-        return self.Category == "1"
+        return self.Category == "Accessories"
     
     def cat2(self):
-        return self.Category == "2"
+        return self.Category == "Sneakers"
     
     def cat3(self):
-        return self.Category == "3"
+        return self.Category == "Others"
     
     
 class OrderItem(models.Model):
