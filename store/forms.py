@@ -10,7 +10,7 @@ from store.models import OrderItem
 class SellForm(forms.ModelForm):
     class Meta:
         model = Items
-        fields = ('Name','Category','Price','Description','Location','Image')
+        fields = ['Name','Category','Price','Description','Location','Image']
     
     Name = forms.CharField(widget=forms.TextInput(attrs={
         'class':'form-control',

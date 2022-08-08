@@ -24,18 +24,18 @@ def index(request):
 
 def detail(request,pk):
     item = Items.objects.get(pk=pk)
-    frm = OrederForm()
+    Ord_Form = OrederForm()
     if request.method == "POST":
-        frm = OrederForm(request.POST)
-        if frm.is_valid():
-            instance = frm.save(commit=False)
+        Ord_Form = OrederForm(request.POST)
+        if Ord_Form.is_valid():
+            instance = Ord_Form.save(commit=False)
             instance.Product_name = item.Name
             instance.save()
             return redirect('detail')
         else:
-            frm = OrederForm()
+            Ord_Form = OrederForm()
     context = {
-        'frm':frm,
+        'Ord_Form':Ord_Form,
         'item':item
     }
     return render(request,'store/detail.html',context)
